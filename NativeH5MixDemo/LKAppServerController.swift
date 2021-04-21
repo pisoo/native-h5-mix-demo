@@ -12,6 +12,18 @@ class LKAppServerController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
     var commandID = ""
+    var command: [String: String] = [:] {
+        didSet(String) {
+
+            // name， arguments 同时存在
+            let name = self.command["name"]
+            let args = self.command["args"]
+            if (name != nil) && (args != nil) {
+                didAcceptCommand(name ?? "", arguments: args ?? "")
+            }
+            
+        }
+    }
     var hasLoad = false
     
     override func viewDidLoad() {
@@ -20,6 +32,8 @@ class LKAppServerController: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
         let h5 = Bundle.main.url(forResource: "h5/index", withExtension: "html")
         webView.loadFileURL(h5!, allowingReadAccessTo: Bundle.main.resourceURL!)
+
+        command = Dictionary.init()
     }
     
     //MARK: public
@@ -27,6 +41,15 @@ class LKAppServerController: UIViewController, WKNavigationDelegate {
     func didAcceptCommand(_ name: String, arguments: String) {
         print("\n❗️ H5 to App ❗️\nname = \(name)\narguments = \(arguments)")
     }
+    
+    func callJS(_ JSONString: String) {
+        
+        let JS = "AppServer.callJS(\"\(commandID)\"" + "," + JSONString + ")"
+        webView.evaluateJavaScript(JS) { (response, error) in
+            print("response:", response ?? "No Response", "\n", "error:", error ?? "No Error")
+        }
+    }
+    
     
     //MARK: private
     
@@ -41,42 +64,44 @@ class LKAppServerController: UIViewController, WKNavigationDelegate {
             
             // 自定义协议
             commandID = getCommandID(navigationAction: navigationAction)
-            let name = getCommandName(commandID)
-            let arguments = getCommandArguments(commandID)
-            
-            didAcceptCommand(name, arguments: arguments);
+            getCommandNameAndArguments(commandID)
         }
     }
+    
     
     private func getCommandID(navigationAction: WKNavigationAction) -> String {
         
         guard let query = navigationAction.request.url?.query else { return "" }
-        return query.replacingOccurrences(of: "demo:id=", with: "")
+        return query.replacingOccurrences(of: "id=", with: "")
     }
     
     
-    private func getCommandName(_ commandID: String) -> String {
+    private func getCommandNameAndArguments(_ commandID: String) {
         
-        var name = ""
+        command = Dictionary.init()
+        getCommandName(commandID)
+        getCommandArguments(commandID)
+    }
+
+    private func getCommandName(_ commandID: String) {
+        
         let JS = "AppServer.getCommandName(\"\(commandID)\")"
         webView.evaluateJavaScript(JS) { (response, error) in
-            name = (error == nil) ? (response as! String): ""
+            if (error == nil) {
+                self.command["name"] = response as? String
+            }
         }
-                
-        return name
     }
     
-    private func getCommandArguments(_ commandID: String) -> String {
-        
-        var arguments = ""
-        let JS = "AppServer.getCommandName(\"\(commandID)\")"
+    private func getCommandArguments(_ commandID: String)  {
+
+        let JS = "AppServer.getCommandArgs(\"\(commandID)\")"
         webView.evaluateJavaScript(JS) { (response, error) in
-            arguments = (error == nil) ? (response as! String): ""
+            if (error == nil) {
+                self.command["args"] = response as? String
+            }
         }
-        
-        return arguments
     }
-        
     
     //MARK: WKNavigationDelegate
     

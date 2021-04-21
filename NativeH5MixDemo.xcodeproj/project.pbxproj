@@ -14,7 +14,9 @@
 		A44A54E8262EA589002F5E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44A54E7262EA589002F5E3D /* Assets.xcassets */; };
 		A44A54EB262EA589002F5E3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44A54E9262EA589002F5E3D /* LaunchScreen.storyboard */; };
 		A44A54F6262EA6F9002F5E3D /* LKAppServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A54F5262EA6F9002F5E3D /* LKAppServerController.swift */; };
-		A44A54F9262EA710002F5E3D /* DemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A54F8262EA710002F5E3D /* DemoController.swift */; };
+		A488A21C262ECB4600F8A401 /* h5 in Resources */ = {isa = PBXBuildFile; fileRef = A488A21B262ECB4600F8A401 /* h5 */; };
+		A4983716262FBAF9005723FE /* LKDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983715262FBAF9005723FE /* LKDemoController.swift */; };
+		A4983722262FCAB9005723FE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4983721262FCAB9005723FE /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,9 @@
 		A44A54EA262EA589002F5E3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44A54EC262EA589002F5E3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A44A54F5262EA6F9002F5E3D /* LKAppServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAppServerController.swift; sourceTree = "<group>"; };
-		A44A54F8262EA710002F5E3D /* DemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoController.swift; sourceTree = "<group>"; };
+		A488A21B262ECB4600F8A401 /* h5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = h5; sourceTree = "<group>"; };
+		A4983715262FBAF9005723FE /* LKDemoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKDemoController.swift; sourceTree = "<group>"; };
+		A4983721262FCAB9005723FE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		A44A54DD262EA587002F5E3D /* NativeH5MixDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A488A21B262ECB4600F8A401 /* h5 */,
 				A44A54DE262EA587002F5E3D /* AppDelegate.swift */,
 				A44A54E0262EA587002F5E3D /* SceneDelegate.swift */,
 				A44A54E2262EA587002F5E3D /* ViewController.swift */,
@@ -68,7 +73,8 @@
 				A44A54E9262EA589002F5E3D /* LaunchScreen.storyboard */,
 				A44A54EC262EA589002F5E3D /* Info.plist */,
 				A44A54F5262EA6F9002F5E3D /* LKAppServerController.swift */,
-				A44A54F8262EA710002F5E3D /* DemoController.swift */,
+				A4983715262FBAF9005723FE /* LKDemoController.swift */,
+				A4983721262FCAB9005723FE /* Helper.swift */,
 			);
 			path = NativeH5MixDemo;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 				A44A54EB262EA589002F5E3D /* LaunchScreen.storyboard in Resources */,
 				A44A54E8262EA589002F5E3D /* Assets.xcassets in Resources */,
 				A44A54E6262EA587002F5E3D /* Main.storyboard in Resources */,
+				A488A21C262ECB4600F8A401 /* h5 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +152,10 @@
 			files = (
 				A44A54E3262EA587002F5E3D /* ViewController.swift in Sources */,
 				A44A54F6262EA6F9002F5E3D /* LKAppServerController.swift in Sources */,
+				A4983716262FBAF9005723FE /* LKDemoController.swift in Sources */,
 				A44A54DF262EA587002F5E3D /* AppDelegate.swift in Sources */,
 				A44A54E1262EA587002F5E3D /* SceneDelegate.swift in Sources */,
-				A44A54F9262EA710002F5E3D /* DemoController.swift in Sources */,
+				A4983722262FCAB9005723FE /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
