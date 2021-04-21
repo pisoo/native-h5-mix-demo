@@ -30,7 +30,7 @@ class LKAppServerController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         webView.navigationDelegate = self
-        let h5 = Bundle.main.url(forResource: "h5/index", withExtension: "html")
+        let h5 = Bundle.main.url(forResource: "index", withExtension: "html")
         webView.loadFileURL(h5!, allowingReadAccessTo: Bundle.main.resourceURL!)
 
         command = Dictionary.init()

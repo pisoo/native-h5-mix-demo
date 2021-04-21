@@ -9,7 +9,15 @@ import UIKit
 
 class LKDemoController: LKAppServerController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
-    // super
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "当前是 WKWebview"
+    }
+    
+    //MARK:  super
+    
     override func didAcceptCommand(_ name: String, arguments: String) {
         super.didAcceptCommand(name, arguments: arguments)
         
@@ -36,7 +44,6 @@ class LKDemoController: LKAppServerController, UIImagePickerControllerDelegate, 
     }
     
     //MARK: Command
-    
     
     func alert(_ arguments: Dictionary<String, Any>) {
 
