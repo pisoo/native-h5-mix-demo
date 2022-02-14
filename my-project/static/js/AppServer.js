@@ -53,7 +53,21 @@ var App = {
     }  
     // 异步
     Asynchronous("TakePicture", args, success, fail);
-  }  
+  },  
+
+  write: function(viewName, args, success, fail) {
+
+    if (typeof args == "undefined") args = {};
+    args["viewName"] = viewName;
+    Asynchronous("write", args, success, fail);
+  },
+
+  read: function(viewName, args, success, fail) {
+
+    if (typeof args == "undefined") args = {};
+    args["viewName"] = viewName;
+    Asynchronous("read", args, success, fail);
+  }
 }
 
 var Tool = {

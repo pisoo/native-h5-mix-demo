@@ -1,5 +1,7 @@
 <template>
   <div id="demo">
+    <div @click="writeClick()" class="line"> Write </div>
+    <div @click="readClick()" class="line"> Read </div>
     <div @click="logClick()" class="line"> Log </div>
     <div @click="alertClick()" class="line"> Alert </div>
     <div @click="jumpPageClick()" class="line"> 跳转页面 </div>
@@ -32,6 +34,35 @@ export default {
         console.log(args.message);
       });
     },
+
+    writeClick() {
+      var args = {"wirte": "wirte something"};
+      App.write("", args, function(data) {
+        // 成功
+        var args = JSON.parse(data);
+        console.log(args.message);
+      },
+      function(data) {
+        // 失败
+        var args = JSON.parse(data);
+        console.log(args.message);
+      });
+    },
+
+    readClick() {
+      var args = {"read": "read something"};
+      App.read("", args, function(data) {
+        // 成功
+        var args = JSON.parse(data);
+        console.log(args.message);
+      },
+      function(data) {
+        // 失败
+        var args = JSON.parse(data);
+        console.log(args.message);
+      });
+    },
+
 
     logClick() {
       var args = {"log": "测试"};

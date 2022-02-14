@@ -41,6 +41,12 @@ class LKDemoController: LKAppServerController, UIImagePickerControllerDelegate, 
             // 拍照
             takePicture()
         }
+        else if (name["cmd_name"] as! String == "write") {
+            write(arguments!)
+        }
+        else if (name["cmd_name"] as! String == "read") {
+            read(arguments!)
+        }
     }
     
     //MARK: Command
@@ -80,7 +86,13 @@ class LKDemoController: LKAppServerController, UIImagePickerControllerDelegate, 
         present(picker, animated: true) {}
     }
     
+    func write(_ arguments: Dictionary<String, Any>) {
+                
+    }
     
+    func read(_ arguments: Dictionary<String, Any>) {
+        
+    }
     
     
     //MARK: UIImagePickerControllerDelegate
